@@ -24,23 +24,20 @@ class UdaciList
     @items.delete_at(index - 1)
   end
   def all
-    puts "-" * @title.length
-    puts @title
-    puts "-" * @title.length
+    rows = []
+    headings = ["num", "description"]
     @items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
+      rows.push([position+1, item.details])
     end
+    table = Terminal::Table.new :title => @title, :headings => headings, :rows => rows
+    puts table
+    puts "\n\n"
   end
   def filter(type)
     item_class = TodoItem if type == "todo"
     item_class = EventItem if type == "event"
     item_class = LinkItem if type == "link"
-    filtered_items = @items.select { |item| item.class == item_class }
-    puts "-" * @title.length
-    puts "#@title (only #{type})"
-    puts "-" * @title.length
-    filtered_items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
-    end
+    rows = @items.select { |item| item.class == item_class }.map {|item| [item.details]}
+    Terminal::Table.new :title => type, :rows => rows
   end
 end
