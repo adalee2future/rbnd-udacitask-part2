@@ -1,4 +1,5 @@
 GEM
+  remote: https://ruby.taobao.org/
   specs:
     chronic (0.10.2)
     colorize (0.7.7)
