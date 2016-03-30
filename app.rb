@@ -10,6 +10,7 @@ require_relative "lib/udacilist"
 require_relative "lib/todo"
 require_relative "lib/event"
 require_relative "lib/link"
+require_relative "lib/interactive"
 
 list = UdaciList.new(title: "Julia's Stuff")
 list.add("todo", "Buy more cat food", due: "2016-02-03", priority: "low")
@@ -48,38 +49,11 @@ new_list.all
 # ------------------------
 puts new_list.filter("event")
 
+# new feature one, user can create their own UdaciList
+your_list = Interactive.create_udaci_list
+your_list.all
 
-# User input here
-cli = HighLine.new
-answer = cli.ask "Do you want to have your own UdaciList? (yes/no)"
-if answer.start_with? "y"
-  user_list = UdaciList.new(title: "Your Stuff")
-  puts "You can add three kind of item: event, link, todo."
-  puts "Format is shown below\n"
-  puts "event|description here|start date here|end date here"
-  puts "link|url here|sitename here"
-  puts "todo|description here|due date here|priority here (high, medium, low supported)"
-  puts "\nif you have accomplished, type end"
-  while true
-    answer = cli.ask("\nAdd items to UdaciList, type end to quit.")
-    if answer == "end"
-      break
-    end
-    tokens = answer.split("|")
-    if tokens[0] == "event"
-      _, description, start_date, end_date = tokens
-      user_list.add("event", description, start_date: start_date, end_date: end_date)
-    elsif tokens[0] == "link"
-      _, url, site_name = tokens
-      user_list.add("link", url, site_name: site_name)
-    elsif tokens[0] == 'todo'
-      _, description, due, priority = tokens
-      user_list.add("todo", description, due: due, priority: priority)
-    else
-      puts "wrong format"
-      break
-    end
-  end
-  user_list.all
-end
+# SHOULD RETURN ERROR MESSAGES
+# ----------------------------
+# new_list.add("event", "Ada studied in primary school", start_date: "2004-6-1", end_date: "1998-9-1")
 
