@@ -1,13 +1,29 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+
+* chronic
+* colorize
+* terminal-table
+* highline
+
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) Add an interative interface that user can create their own
+  b) Add a new error called EventPeriodError to make sure that event start date is before event end date
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+20 hours
+
 2. What was the most rewarding challenge you conquered?
+Job disturbed for more than 2 months, so forget many things
+
 3. What two additional features did you build? Why?
+
+One is user can create their own UdaciList, second is to add an error to make sure that event start date is before event end date.
+I add those because I think the first one is interesting and the second one is important.
+
 4. Where do you still have room to grow?
+User interative should be better
+
