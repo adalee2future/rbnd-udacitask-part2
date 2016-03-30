@@ -8,4 +8,7 @@ module UdaciListErrors
 
   class InvalidPriorityValue < StandardError
   end
+
+  class EventPeriodError < StandardError
+  end
 end
