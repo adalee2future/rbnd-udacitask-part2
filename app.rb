@@ -51,7 +51,7 @@ puts new_list.filter("event")
 
 # new feature one, user can create their own UdaciList
 your_list = Interactive.create_udaci_list
-your_list.all
+your_list.all if your_list
 
 # SHOULD RETURN ERROR MESSAGES
 # ----------------------------
