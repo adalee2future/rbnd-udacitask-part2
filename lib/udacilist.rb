@@ -34,10 +34,8 @@ class UdaciList
     puts "\n\n"
   end
   def filter(type)
-    item_class = TodoItem if type == "todo"
-    item_class = EventItem if type == "event"
-    item_class = LinkItem if type == "link"
-    rows = @items.select { |item| item.class == item_class }.map {|item| [item.details]}
+    item_class = { "todo" => TodoItem, "event" => EventItem, "link" => LinkItem }
+    rows = @items.select { |item| item.class == item_class[type] }.map { |item| [item.details] }
     Terminal::Table.new :title => type, :rows => rows
   end
 end
