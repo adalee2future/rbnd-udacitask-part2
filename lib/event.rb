@@ -13,7 +13,7 @@ class EventItem
   def format_date
     dates = @start_date.strftime("%D") if @start_date
     dates << " -- " + @end_date.strftime("%D") if @end_date
-    dates = "N/A" if !dates
+    dates = "N/A" unless dates
     return dates
   end
   def details

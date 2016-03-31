@@ -14,7 +14,7 @@ class TodoItem
     value = " ⇧".colorize(:red) if @priority == "high"
     value = " ⇨".colorize(:blue) if @priority == "medium"
     value = " ⇩".colorize(:white) if @priority == "low"
-    value = "" if !@priority
+    value = "" unless @priority
     return value
   end
   def details

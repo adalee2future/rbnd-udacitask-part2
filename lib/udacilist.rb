@@ -7,7 +7,7 @@ class UdaciList
   end
   def add(type, description, options={})
     type = type.downcase
-    if !['todo', 'event', 'link'].include? type
+    unless ['todo', 'event', 'link'].include? type
       raise UdaciListErrors::InvalidItemType, 'item type should be "todo", "event", or "link"!'
     end
     if (options.has_key? :priority) &&(!["low", "high", "medium"].include? options[:priority])
